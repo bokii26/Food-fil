@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RG's Filipino Delicacy - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="bx bxs-basket"></i>RG's Filipino Delicacy</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="index.html" class="home-active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="addtocart.html">Cart</a></li>
+        </ul>
+        <div class="profile">
+            <div class="person">
+                <img src="KURT.jpeg" alt="Rylan Peregrino" />
+                <span>Rylan Peregrino</span>
+            </div>
+            <div class="person">
+                <img src="joh.jpeg" alt="John Gabriel Pareja" />
+                <span>John Gabriel Pareja</span>
+            </div>
+        </div>
+        <a href="addtocart.html" class="cart-icon">
+            <i class='bx bx-cart'></i>
+            <span id="cart-count">0</span>
+        </a>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="text-content">
+            <span class="subheading">FILIPINO DELICACY</span>
+            <h1>Choose delicacies<br />From the Philippines<br />Ulam dishes</h1>
+            <button class="shop-btn">Shop Now →</button>
+        </div>
+        <div class="image-content">
+            <div class="hero-images">
+                <img src="DEL.jpeg" alt="Chicken Salad" class="hero-img active" />
+                <img src="DLO.jpg" alt="Filipino Dish 2" class="hero-img" />
+            </div>
+            <div class="orange-bg"></div>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <h2 class="section-title">Explore Our Categories</h2>
+        <div class="category-cards">
+            <div class="category-card" data-category="Pork">
+               <i class='bx bx-dish'></i><h3>Pork</h3>
+            </div>
+            <div class="category-card" data-category="Chicken">
+                <i class='bx bx-dish'></i> <h3>Chicken</h3>
+            </div>
+            <div class="category-card" data-category="Beef">
+                <i class='bx bx-dish'></i> <h3>Beef</h3>
+            </div>
+            <div class="category-card" data-category="Seafood">
+                <i class='bx bx-dish'></i>
+                <h3>Seafood</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">All Dishes</h2>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <div id="cart-popup" class="cart-popup"></div>
+
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(255, 255, 255, 0.6); z-index: -1;">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

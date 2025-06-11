@@ -1,0 +1,744 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green-color: #3cb815;
+    --light-green-color: #c0eb7b;
+    --orange-color: #ff7e00;
+    --light-orange-color: #ffb347;
+    --text-color: #000;
+    --bg-color: #fff;
+}
+
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+    min-height: 100vh;
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2V6eDNtcm1zc2hpbDN3ZjR5ejE5bWR4bmE3djNlMmdxOGpkOTR1NyZlcD1WjMVfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PWc/psMRkyebow9sxR6Ug1/giphy.gif') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.8; 
+}
+
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    box-shadow: 0 8px 11px rgba(14, 55, 54, 0.15);
+    padding: 20px 100px;
+    transition: 0.5s;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    gap: 0.5rem;
+}
+
+.logo .bx {
+    font-size: 24px;
+    color: var(--orange-color);
+}
+
+.navbar {
+    display: flex;
+    gap: 3rem;
+}
+
+.navbar a {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color);
+    padding: 6px 14px;
+    border-radius: 25px;
+    transition: background-color 0.4s ease;
+}
+
+.navbar a:hover,
+.navbar .home-active {
+    background: var(--green-color);
+    color: var(--bg-color);
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    z-index: 10001;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    cursor: default;
+}
+
+.profile .person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.profile .person img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--orange-color);
+}
+
+
+.mobile-menu-icon {
+    display: none; 
+    z-index: 10001;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block;
+    }
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 140px 3rem 3rem 9rem; 
+    gap: 2rem;
+    min-height: 100vh;
+}
+
+.text-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.text-content h1 {
+    font-size: 3rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.text-content .subheading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--orange-color);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.shop-btn {
+    padding: 12px 28px;
+    background-color: var(--green-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.shop-btn:hover {
+    background-color: var(--light-green-color);
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    max-width: 600px;
+}
+
+
+.hero-images {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 126, 0, 0.4);
+}
+
+
+.hero-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+
+.orange-bg {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: var(--light-orange-color);
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(40px);
+    opacity: 0.7;
+}
+
+
+.categories {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--green-color);
+    margin-bottom: 2rem;
+    text-align: center; /* Centered section titles */
+}
+
+.category-cards {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0 4rem;
+}
+
+.category-card {
+    background: var(--orange-color);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 15px rgba(255, 126, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+        background-color 0.3s ease;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.category-card i {
+    font-size: 3.5rem;
+}
+
+.category-card:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 25px rgba(255, 126, 0, 0.8); /* Used direct RGB here */
+    background: var(--light-orange-color);
+    color: #fff;
+    box-shadow: 0 0 10px var(--orange-color), 0 0 20px var(--orange-color), 0 0 30px var(--orange-color);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem 4rem;
+}
+
+.product-card {
+    background: #fff8f0;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden; /* Crucial to contain the scaled image */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-size 0.4s ease; /* Added background-size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    position: relative; /* Needed for absolute positioning of overlay/background */
+    z-index: 1; /* Ensure cards are above other elements if needed */
+
+    /* Initial background overlay for the dish image */
+    background-size: 0% 0%; /* Start with no background */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: overlay; /* Allows content to be visible over background */
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.25); /* Adjusted scale for a "super duper big" effect */
+    box-shadow: 0 15px 30px rgba(255, 126, 0, 0.4); /* More pronounced shadow */
+    z-index: 2; /* Bring hovered card to front */
+    background-size: 100% 100%; /* Make background image cover */
+}
+
+.product-card img {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease; /* Added transition for the image itself */
+    z-index: 2; /* Ensure image is above background effect */
+}
+
+.product-card:hover img {
+    transform: scale(1.1); /* Slightly enlarge image on hover */
+}
+
+.product-card h4,
+.product-card p,
+.product-card .add-to-cart-btn {
+    position: relative; /* Ensure text/button stay on top of background effect */
+    z-index: 2;
+    transition: color 0.4s ease, opacity 0.4s ease; /* Smooth transition for text/button */
+}
+
+/* Dish description style */
+.dish-description {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    opacity: 0; /* Hidden by default */
+    max-height: 0; /* Collapse height */
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    text-align: justify; /* NEW: Justify text for better organization */
+    padding: 0 0.5rem; /* NEW: Add padding for better readability */
+}
+
+.product-card:hover .dish-description {
+    opacity: 1; /* Show on hover */
+    max-height: 100px; /* Expand height - adjust as needed based on content */
+}
+
+/* Add to Cart button design */
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, var(--green-color), var(--light-green-color));
+    color: white;
+    border: none;
+    border-radius: 25px; /* More rounded */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600; /* NEW: Make text bolder */
+    letter-spacing: 0.5px; /* NEW: Add slight letter spacing */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-transform: uppercase; /* NEW: Uppercase text */
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(45deg, var(--light-green-color), #66BB6A); /* NEW: Lighter gradient on hover */
+    transform: translateY(-2px) scale(1.02); /* Slight lift and scale on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Delivery Form Inputs */
+.delivery-select,
+.delivery-input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.delivery-label {
+    display: block;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    color: #555;
+}
+
+
+/* About Section */
+.about {
+    padding: 4rem 2rem;
+    background-color: #f0f8ff; /* This background is specific to the about section, separate from body */
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 6px 15px rgba(60, 184, 21, 0.15);
+}
+
+.about-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Social icons */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.socials a {
+    color: var(--orange-color);
+    font-size: 3rem;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: var(--green-color);
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 2rem;
+    }
+    .hero {
+        flex-direction: column-reverse;
+        padding-top: 6rem;
+        gap: 3rem;
+    }
+    .image-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+    #menu-icon {
+        display: block; /* Show the menu icon for mobile */
+    }
+    .profile {
+        display: none; /* Hide profile for mobile */
+    }
+    .categories {
+        padding: 3rem 1rem;
+    }
+    .products-grid {
+        padding: 0 1rem 3rem;
+    }
+    .about {
+        padding: 2rem 1rem;
+    }
+}
+
+/* This is for the cart popup notification */
+.cart-popup {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: var(--green-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.cart-popup.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Modal Styles (Used for the cart content on cart.html) */
+/* Note: The .modal class itself is for a popup, not directly used for the cart page section */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px; /* Add some padding around the modal */
+}
+
+.modal.show {
+    display: flex; /* Show the modal */
+}
+
+.modal-content {
+    background-color: #fefefe; /* This makes the cart details section white */
+    margin: auto; /* For vertical centering */
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%; /* Could be more specific, e.g., max-width: 500px */
+    max-width: 500px; /* Adjust as needed */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative; /* For close button positioning */
+    animation: fadeInModal 0.3s ease-out; /* Simple fade-in effect */
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Re-use existing order-confirmation styles for modal content */
+.modal-content h1 {
+    color: var(--orange-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content .order-items {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.modal-content .order-items li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.modal-content .order-items li span:first-child {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.modal-content .order-items li span:last-child {
+    color: var(--green-color);
+    font-weight: 700;
+}
+
+/* Remove button in modal */
+.remove-item-btn {
+    background-color: #9de4c9; /* Red color for removal */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item-btn:hover {
+    background-color: #d8eca1;
+}
+
+.modal-content .order-total {
+    text-align: right;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--orange-color);
+    margin-bottom: 30px;
+}
+
+.modal-content .place-order-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 12px 30px;
+    background-color: var(--green-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content .place-order-btn:hover {
+    background-color: var(--light-green-color);
+    transform: translateY(-2px);
+}
+
+/* Scroll-down fade-in effects */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95); /* Start slightly smaller and lower */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower, smoother transition */
+}
+
+.scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Fade in and pop to original size */
+}
+
+/* Styles for the cart page section */
+.cart-page-content {
+    padding-top: 100px; /* Adjust based on header height */
+    padding-bottom: 4rem;
+    min-height: calc(100vh - 80px); /* Adjust based on header/footer */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* NEW: Centers vertically */
+}
+
+.order-confirmation {
+    max-width: 600px;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 30px;
+    background-color: #fff; /* This retains the white background for the main cart block */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Place Order Button */
+.place-order-btn {
+    display: block;
+    width: fit-content; /* Button width adjusts to content */
+    margin: 30px auto 0; /* Center button and add top margin */
+    padding: 14px 35px; /* More padding for a larger button */
+    background: linear-gradient(45deg, var(--green-color), var(--light-green-color)); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 30px; /* More rounded */
+    font-size: 1.2rem; /* Larger font size */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Add letter spacing */
+    font-weight: 600; /* Make text bolder */
+}
+
+.place-order-btn:hover {
+    background: linear-gradient(45deg, var(--light-green-color), #66BB6A); /* Lighter gradient on hover */
+    transform: translateY(-3px) scale(1.02); /* Slight lift and scale on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Even more pronounced shadow on hover */
+}
+
+/* Styles for the cart summary and delivery details sections */
+.cart-summary, .delivery-details {
+    margin-bottom: 2.5rem; /* Adjusted: Add more spacing between sections */
+}
+
+.cart-summary h3, .delivery-details h3 {
+    font-size: 1.5rem;
+    color: var(--orange-color); /* Uses orange for section headings */
+    margin-bottom: 2rem; /* Adjusted: More space below the heading */
+    text-align: center; /* Center section headings */
+}
+.order-total {
+    text-align: right;
+    font-size: 1.8rem; /* Made slightly larger for more visibility */
+    font-weight: 700;
+    color: var(--orange-color); /* Highlight total in orange */
+}
+
+/* Cart items list */
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px; /* Keep this as it separates the list from the total-cost if total was here */
+}
+
+.order-items li {
+    background-color: #fff; /* Ensure white background for list items */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px; /* Adjusted: More spacing between list items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for each item */
+}
+
+

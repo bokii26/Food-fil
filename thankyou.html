@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You! - RG's Filipino Delicacy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        /* Specific styles for the thank you page content */
+        .thank-you-page-wrapper {
+            min-height: calc(100vh - 80px); /* Adjust based on header height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; /* More padding on sides for better spacing */
+        }
+
+        .thank-you-container {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly less opaque */
+            border-radius: 16px; /* More rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            text-align: center;
+            padding: 40px; /* Increased padding inside */
+            max-width: 90%; /* Allow it to grow more on wider screens */
+            width: fit-content; /* Make it fit the content width */
+            transform: translateY(50px); /* Initial state for scroll-fade-in */
+            opacity: 0; /* Initial state for scroll-fade-in */
+            position: relative; /* For the decorative element */
+        }
+
+        .thank-you-container.visible {
+            transform: translateY(0);
+            opacity: 1;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Decorative element - a subtle pattern at the top */
+        .thank-you-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--green-color),
+                var(--green-color) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .thank-you-container h1 {
+            font-size: 3.5em; /* Slightly larger */
+            color: var(--green-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+        }
+
+        .thank-you-container p {
+            font-size: 1.15em; /* Slightly smaller */
+            color: var(--text-color);
+            line-height: 1.7; /* Improved line height */
+            margin-bottom: 35px;
+        }
+
+        .thank-you-container .home-btn {
+            display: inline-block;
+            background-color: var(--orange-color);
+            color: var(--bg-color);
+            padding: 14px 30px; /* Slightly larger button */
+            border-radius: 10px; /* More rounded button */
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Added transform */
+        }
+
+        .thank-you-container .home-btn:hover {
+            background-color: var(--light-orange-color);
+            transform: scale(1.05); /* Slight scale up on hover */
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 30px;
+                border-radius: 12px;
+            }
+            .thank-you-container h1 {
+                font-size: 2.8em;
+            }
+            .thank-you-container p {
+                font-size: 1em;
+                line-height: 1.5;
+                margin-bottom: 25px;
+            }
+            .thank-you-container .home-btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="bx bxs-basket"></i>RG's Filipino Delicacy</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="addtocart.html">Cart</a></li>
+        </ul>
+        <div class="profile">
+            <div class="person">
+                <img src="KURT.jpeg" alt="Rylan Peregrino" />
+                <span>Rylan Peregrino</span>
+            </div>
+            <div class="person">
+                <img src="joh.jpeg" alt="John Gabriel Pareja" />
+                <span>John Gabriel Pareja</span>
+            </div>
+        </div>
+        <div class="cart-icon">
+            <a href="addtocart.html"><i class="bx bx-shopping-bag"></i></a>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <main class="thank-you-page-wrapper">
+        <section class="thank-you-container scroll-fade-in" id="thankYouSection">
+            <h1>Thank You for Your Order!</h1>
+            <p>Your order has been successfully placed and is now being processed. We appreciate your business!</p>
+            <p>You will receive a confirmation shortly with the details of your order.</p>
+            <a href="index.html" class="home-btn">Continue Shopping</a>
+        </section>
+    </main>
+
+    <div id="cart-popup" class="cart-popup"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
